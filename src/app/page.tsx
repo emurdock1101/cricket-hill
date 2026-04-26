@@ -573,6 +573,33 @@ export default function Home() {
         </p>
       </section>
 
+      {/* ── MAP ── */}
+      <section className="py-16 px-4 bg-gradient-to-b from-yellow-500 to-purple-950">
+        <h2 className="text-3xl md:text-5xl font-black text-center text-purple-900 mb-2">
+          📍 Find The Hill
+        </h2>
+        <p className="text-center text-purple-800/70 mb-8 max-w-lg mx-auto">
+          Our spiritual homeland. We didn&rsquo;t name it — it was already
+          there. Destiny, probably.
+        </p>
+        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+          <iframe
+            src="https://maps.google.com/maps?q=Cricket+Hill,+Chicago,+IL&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Cricket Hill, Chicago"
+          />
+        </div>
+        <p className="text-center text-purple-200/50 text-xs mt-4">
+          Note: This is a real place in Chicago. We are not affiliated with it.
+          Steve just thinks it&rsquo;s cool that it shares the name.
+        </p>
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="bg-purple-950 text-white/50 py-8 px-4 text-center">
         <div className="text-3xl mb-4">
