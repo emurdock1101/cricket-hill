@@ -161,6 +161,13 @@ export default function Home() {
           {showBoom ? "💥 BOOM! We'll Be In Touch 💥" : "🎆 Get a Free Quote"}
         </button>
 
+        <a
+          href="/login"
+          className="mt-4 text-white/50 hover:text-white/80 text-sm underline underline-offset-4 transition-colors"
+        >
+          🔐 Client Portal Login
+        </a>
+
         <div className="absolute bottom-8 animate-bounce text-white text-3xl">
           ↓
         </div>
@@ -400,6 +407,12 @@ export default function Home() {
         <p className="text-sm mt-1">
           Generators &bull; Fireworks &bull; Delivery &bull; Miscellaneous
         </p>
+        <a
+          href="/login"
+          className="inline-block mt-4 text-white/40 hover:text-white/70 text-sm transition-colors underline underline-offset-4"
+        >
+          🔐 Client Portal
+        </a>
         <p className="text-xs mt-4 text-white/30">
           © {new Date().getFullYear()} Cricket Hill. All rights reserved. Services subject to
           interpretation.
