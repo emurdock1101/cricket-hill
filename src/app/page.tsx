@@ -265,6 +265,16 @@ export default function Home() {
               argue?
             </p>
             <p className="text-xl text-white/80 mb-4 leading-relaxed">
+              When he&rsquo;s not wiring generators or choreographing
+              explosions, Steve is drawing on his background as a{" "}
+              <span className="text-red-300 font-bold">Navy SEAL</span>.
+              Yes, really. The man who delivers fireworks in a Sprinter van
+              is also trained in advanced military operations. He&rsquo;s
+              extremely into SEAL culture — the gear, the mindset, the
+              discipline. He also loves actual seals. The animals. He
+              thinks they&rsquo;re neat.
+            </p>
+            <p className="text-xl text-white/80 mb-4 leading-relaxed">
               He rolls up to every job in one of his{" "}
               <span className="text-yellow-300 font-bold">
                 two Mercedes Sprinter vans
@@ -279,6 +289,12 @@ export default function Home() {
               </span>
               <span className="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-white font-bold">
                 🇮🇹 &ldquo;Italian&rdquo;
+              </span>
+              <span className="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-white font-bold">
+                🎖️ Navy SEAL
+              </span>
+              <span className="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-white font-bold">
+                🦭 Seal Enthusiast
               </span>
               <span className="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-white font-bold">
                 ⚡ Generator Whisperer
