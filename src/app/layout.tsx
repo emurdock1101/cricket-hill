@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Cricket Hill — Generators, Fireworks & Whatever Else You Need",
   description:
     "Home generators. Musical firework shows. Delivery of... things. Cricket Hill has you covered. Probably.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

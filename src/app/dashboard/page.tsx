@@ -70,19 +70,19 @@ function StatCard({
   value,
   unit,
   color,
-  wiggle,
+  anim,
 }: {
   icon: string;
   label: string;
   value: string | number;
   unit?: string;
   color: string;
-  wiggle?: boolean;
+  anim?: string;
 }) {
   return (
     <div
       className={`${color} rounded-2xl p-5 shadow-xl transform transition-all duration-300 hover:scale-110 hover:-rotate-2 ${
-        wiggle ? "animate-wiggle" : ""
+        anim ?? ""
       }`}
     >
       <div className="text-3xl mb-1">{icon}</div>
@@ -432,13 +432,14 @@ export default function DashboardPage() {
             label="Generators Deployed"
             value={rand(100, 999)}
             color="bg-gradient-to-br from-emerald-600 to-teal-800"
+            anim="animate-pulse"
           />
           <StatCard
             icon="🎆"
             label="Fireworks Launched"
             value={`${rand(10, 99)}K`}
             color="bg-gradient-to-br from-pink-600 to-red-800"
-            wiggle
+            anim="animate-wiggle"
           />
           <StatCard
             icon="🚐"
@@ -446,25 +447,28 @@ export default function DashboardPage() {
             value={rand(10000, 99999)}
             unit="mi"
             color="bg-gradient-to-br from-blue-600 to-indigo-800"
+            anim="animate-bounce"
           />
           <StatCard
             icon="🤌"
             label="Italian Gestures"
             value={`${rand(1, 9)}.${rand(1, 9)}M`}
             color="bg-gradient-to-br from-orange-600 to-amber-800"
-            wiggle
+            anim="animate-wiggle"
           />
           <StatCard
             icon="🎵"
             label="Songs Synced"
             value={rand(200, 800)}
             color="bg-gradient-to-br from-violet-600 to-purple-800"
+            anim="animate-float"
           />
           <StatCard
             icon="😤"
             label="Complaints (Valid)"
             value={0}
             color="bg-gradient-to-br from-gray-600 to-gray-800"
+            anim="animate-spin-slow"
           />
         </div>
 

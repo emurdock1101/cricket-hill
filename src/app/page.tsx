@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 /* ── tiny helpers ── */
-const emojis = ["🎆", "🎇", "✨", "💥", "⚡", "🔥", "🦗", "🏔️", "🎵", "🎶"];
+const emojis = ["🎆", "🎇", "✨", "💥", "⚡", "🔥", "🦗", "🏔️", "🎵", "🎶", "😈", "🚛", "🧃"];
 
 function RandomEmoji({ className = "" }: { className?: string }) {
   const [emoji, setEmoji] = useState("✨");
@@ -271,8 +271,6 @@ function VisitorCounter() {
 }
 
 export default function Home() {
-  const [showBoom, setShowBoom] = useState(false);
-
   return (
     <main className="min-h-screen overflow-x-hidden">
       <VisitorCounter />
@@ -311,12 +309,12 @@ export default function Home() {
           We deliver the goods. Don&rsquo;t ask too many questions.
         </p>
 
-        <button
-          className="bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-extrabold text-xl px-10 py-4 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200 cursor-pointer"
-          onClick={() => setShowBoom(true)}
+        <a
+          href="mailto:hello@crickethill.com?subject=Free%20Quote%20Request&body=I%20need%20help%20with%20(generators%20%2F%20fireworks%20%2F%20other%20mysterious%20services)..."
+          className="inline-block bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-extrabold text-xl px-10 py-4 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200 cursor-pointer"
         >
-          {showBoom ? "💥 BOOM! We'll Be In Touch 💥" : "🎆 Get a Free Quote"}
-        </button>
+          🎆 Get a Free Quote
+        </a>
 
         <a
           href="/login"
@@ -396,7 +394,7 @@ export default function Home() {
         </h2>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="relative flex-shrink-0">
-            <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-yellow-400 transform rotate-2 hover:rotate-0 transition-all duration-300">
+            <div className="w-72 h-96 md:w-80 md:h-[28rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-yellow-400 transform rotate-2 hover:rotate-0 transition-all duration-300">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/steve.png"
