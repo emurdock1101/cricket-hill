@@ -78,6 +78,27 @@
   animation: rain 6s linear infinite;
 }
 
+@keyframes waddleWalkRight {
+  0% { left: -40px; }
+  100% { left: calc(100% + 40px); }
+}
+
+@keyframes waddleWalkLeft {
+  0% { left: calc(100% + 40px); }
+  100% { left: -40px; }
+}
+
+@keyframes waddleBob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(3deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(-3px) rotate(-3deg); }
+}
+
+.animate-waddleBob {
+  animation: waddleBob 0.5s ease-in-out infinite;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

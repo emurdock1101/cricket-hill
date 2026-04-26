@@ -116,6 +116,109 @@ function Testimonial({
 /* ══════════════════════════════════════════
    PAGE
    ══════════════════════════════════════════ */
+/* ── Steve Quote of the Day ── */
+const STEVE_QUOTES = [
+  "I'm in the business of people, places, and things.",
+  "I'm just gonna run to Home Depot real quick.",
+  "That's not a generator problem, that's a mindset problem.",
+  "In the SEALs we had a saying... actually I can't tell you.",
+  "I'll be there in 10 minutes. (45 minutes ago)",
+  "Fireworks aren't dangerous if you believe in yourself.",
+  "The van knows the way. I just drive.",
+  "My nonna would've loved this generator.",
+  "That's Italian craftsmanship right there. (Points at Chinese-made generator)",
+  "The customer is always right, but Steve is never wrong.",
+  "Every explosion tells a story.",
+  "I don't do estimates. I do promises. Loosely.",
+  "Two vans is a fleet. Look it up.",
+  "SEAL training prepared me for everything except HOA meetings.",
+];
+
+function SteveQuote() {
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    setQuote(STEVE_QUOTES[Math.floor(Math.random() * STEVE_QUOTES.length)]);
+  }, []);
+
+  if (!quote) return null;
+
+  return (
+    <div className="fixed top-4 right-4 z-50 max-w-xs bg-white/10 backdrop-blur-xl rounded-2xl px-5 py-4 shadow-2xl border border-white/20">
+      <div className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">
+        💬 Steve Quote of the Day
+      </div>
+      <div className="text-white text-sm italic leading-relaxed">
+        &ldquo;{quote}&rdquo;
+      </div>
+      <div className="text-white/30 text-xs mt-2 text-right">— Steve</div>
+    </div>
+  );
+}
+
+/* ── Waddle Dees walking along the bottom ── */
+function WaddleDees() {
+  const [dees, setDees] = useState<
+    { id: number; speed: number; delay: number; flip: boolean; y: number }[]
+  >([]);
+
+  useEffect(() => {
+    const group = Array.from({ length: 5 }, (_, i) => ({
+      id: i,
+      speed: 18 + Math.random() * 14, // 18-32s to cross
+      delay: Math.random() * -30, // staggered starts
+      flip: Math.random() > 0.3, // most go left-to-right
+      y: Math.random() * 16, // slight vertical variance
+    }));
+    setDees(group);
+  }, []);
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 h-16 pointer-events-none overflow-hidden">
+      {dees.map((dee) => (
+        <div
+          key={dee.id}
+          className="absolute bottom-0"
+          style={{
+            animation: `${dee.flip ? "waddleWalkRight" : "waddleWalkLeft"} ${dee.speed}s linear infinite`,
+            animationDelay: `${dee.delay}s`,
+            bottom: `${dee.y}px`,
+          }}
+        >
+          <svg
+            width="28"
+            height="32"
+            viewBox="0 0 28 32"
+            className="animate-waddleBob"
+            style={{
+              animationDelay: `${dee.delay}s`,
+              transform: dee.flip ? "scaleX(1)" : "scaleX(-1)",
+            }}
+          >
+            {/* Body (orange/tan) */}
+            <ellipse cx="14" cy="20" rx="10" ry="11" fill="#E87830" />
+            {/* Face (cream) */}
+            <ellipse cx="14" cy="17" rx="8" ry="8" fill="#FFF0D0" />
+            {/* Eyes */}
+            <ellipse cx="11" cy="15" rx="1.5" ry="2" fill="#301800" />
+            <ellipse cx="17" cy="15" rx="1.5" ry="2" fill="#301800" />
+            {/* Blush */}
+            <ellipse cx="8" cy="18" rx="2.5" ry="1.5" fill="#F09080" opacity="0.6" />
+            <ellipse cx="20" cy="18" rx="2.5" ry="1.5" fill="#F09080" opacity="0.6" />
+            {/* Mouth */}
+            <ellipse cx="14" cy="20" rx="1" ry="0.5" fill="#301800" />
+            {/* Feet */}
+            <ellipse cx="10" cy="30" rx="3.5" ry="2" fill="#E04020" />
+            <ellipse cx="18" cy="30" rx="3.5" ry="2" fill="#E04020" />
+            {/* Head bandana/top */}
+            <ellipse cx="14" cy="9" rx="6" ry="4" fill="#E87830" />
+          </svg>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function VisitorCounter() {
   const [visitorNum, setVisitorNum] = useState(0);
   const [isWinner, setIsWinner] = useState(false);
@@ -173,6 +276,8 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
       <VisitorCounter />
+      <SteveQuote />
+      <WaddleDees />
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gradient-to-br from-purple-900 via-pink-700 to-orange-500 animate-gradient">
         {/* floating decorations */}
