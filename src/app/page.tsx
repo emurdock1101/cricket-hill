@@ -116,11 +116,63 @@ function Testimonial({
 /* ══════════════════════════════════════════
    PAGE
    ══════════════════════════════════════════ */
+function VisitorCounter() {
+  const [visitorNum, setVisitorNum] = useState(0);
+  const [isWinner, setIsWinner] = useState(false);
+
+  useEffect(() => {
+    const num = Math.floor(Math.random() * 14000) + 1;
+    setVisitorNum(num);
+    if (num === 10000) setIsWinner(true);
+  }, []);
+
+  if (visitorNum === 0) return null;
+
+  return (
+    <div className={`fixed bottom-4 left-4 z-50 rounded-2xl px-5 py-3 shadow-2xl border text-sm max-w-xs ${
+      isWinner
+        ? "bg-yellow-400 border-yellow-300 text-purple-900 animate-bounce"
+        : "bg-white/10 backdrop-blur-xl border-white/20 text-white/70"
+    }`}>
+      {isWinner ? (
+        <div>
+          <div className="font-black text-lg">🎉 CONGRATULATIONS! 🎉</div>
+          <div className="font-bold">
+            You are visitor #10,000!
+          </div>
+          <div className="mt-1 text-purple-800">
+            You&rsquo;ve won a FREE* Mercedes Sprinter Van!
+          </div>
+          <div className="text-xs mt-2 text-purple-700/70">
+            *$0.50/mile usage fee applies. Pickup required. Van may or may not
+            exist. Steve will be late to the handoff. No refunds on a free van.
+          </div>
+        </div>
+      ) : (
+        <div>
+          You are visitor <span className="font-black text-yellow-400">#{visitorNum.toLocaleString()}</span>
+          {visitorNum > 9900 && visitorNum < 10000 && (
+            <div className="text-xs text-white/50 mt-1">
+              🚐 Visitor #10,000 wins a FREE Sprinter Van! You&rsquo;re so close!
+            </div>
+          )}
+          {visitorNum > 10000 && (
+            <div className="text-xs text-white/50 mt-1">
+              🚐 Visitor #10,000 already won the free Sprinter Van. Sorry!
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const [showBoom, setShowBoom] = useState(false);
 
   return (
     <main className="min-h-screen overflow-x-hidden">
+      <VisitorCounter />
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gradient-to-br from-purple-900 via-pink-700 to-orange-500 animate-gradient">
         {/* floating decorations */}
@@ -275,13 +327,19 @@ export default function Home() {
               thinks they&rsquo;re neat.
             </p>
             <p className="text-xl text-white/80 mb-4 leading-relaxed">
-              He rolls up to every job in one of his{" "}
+              Steve operates on what he calls{" "}
+              <span className="text-cyan-300 font-bold italic">
+                &ldquo;Strategic Arrival Timing&rdquo;
+              </span>
+              — arriving fashionably (and consistently) late to every job.
+              This isn&rsquo;t a flaw. It&rsquo;s a feature. It builds
+              anticipation. It creates buzz. By the time Steve pulls up in
+              one of his{" "}
               <span className="text-yellow-300 font-bold">
                 two Mercedes Sprinter vans
               </span>
-              , loaded with generators, pyrotechnics, and an air of quiet
-              professionalism that says &ldquo;I&rsquo;ve done this before and
-              I&rsquo;ll do it again.&rdquo;
+              , you&rsquo;re so relieved he showed up at all that the
+              experience feels transcendent. Genius, really.
             </p>
             <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-6">
               <span className="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-white font-bold">
